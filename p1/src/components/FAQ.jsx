@@ -35,34 +35,33 @@ const FAQ = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-12 px-4 md:px-8 lg:px-12">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+    <section className="bg-gray-50 py-14 px-4 md:px-10 animate-fade-in">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">📚 Frequently Asked Questions</h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div key={index} className="bg-white shadow-md rounded-xl transition-all overflow-hidden">
               <button
-                className="w-full flex justify-between items-center p-4 md:p-6 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full flex justify-between items-center p-5 md:p-6 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 onClick={() => toggleFAQ(index)}
               >
-                <h3 className="text-lg font-semibold text-left">{faq.question}</h3>
-                <span className={`transition-transform ${openIndex === index ? 'transform rotate-180' : ''}`}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
+                <h3 className="text-lg md:text-xl font-semibold text-left text-gray-800">{faq.question}</h3>
+                <svg
+                  className={`h-6 w-6 text-gray-500 transform transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-              {openIndex === index && (
-                <div className="p-4 md:p-6 text-gray-600">
-                  <p>{faq.answer}</p>
-                </div>
-              )}
+              <div
+                className={`px-5 md:px-6 pb-5 transition-all duration-300 text-gray-600 ${
+                  openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                } overflow-hidden`}
+              >
+                <p className="text-sm leading-relaxed">{faq.answer}</p>
+              </div>
             </div>
           ))}
         </div>
