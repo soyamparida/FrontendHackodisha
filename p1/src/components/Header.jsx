@@ -13,19 +13,35 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6 items-center font-medium">
-          <NavLink href="#home" icon={<Home />} label="Home" />
-          <NavLink href="#report" icon={<PlusCircle />} label="Report Item" />
-          <NavLink href="#browse" icon={<Search />} label="Browse Listings" />
-          <NavLink href="#faq" icon={<HelpCircle />} label="FAQ" />
-          <NavLink href="#contact" icon={<Phone />} label="Contact" />
-
+        <div className="hidden md:flex space-x-6 items-center">
+           <div className="hidden md:flex space-x-8 items-center">
+          <a href="#home" className="flex items-center text-gray-700 hover:text-indigo-600">
+            <Home className="mr-2 h-5 w-5" />
+            Home
+          </a>
+          <a href="#report" className="flex items-center text-gray-700 hover:text-indigo-600">
+            <PlusCircle className="mr-2 h-5 w-5" />
+            Report Item
+          </a>
+          <a href="#workflow" className="flex items-center text-gray-700 hover:text-indigo-600">
+            <Search className="mr-2 h-5 w-5" />
+             How it Works
+          </a>
+          <a href="#faq" className="flex items-center text-gray-700 hover:text-indigo-600">
+            <HelpCircle className="mr-2 h-5 w-5" />
+            FAQ
+          </a>
+          <a href="#footer" className="flex items-center text-gray-700 hover:text-indigo-600">
+            <Phone className="mr-2 h-5 w-5" />
+            Contact
+          </a>
           <a
             href="/login"
-            className="ml-4 px-5 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-green-500 transition duration-300"
+            className="px-6 py-2 bg-indigo-600 text-white rounded-md shadow hover:bg-green-500 transition duration-300"
           >
             Login
           </a>
+        </div>
         </div>
 
         {/* Mobile Menu Button */}

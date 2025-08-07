@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Feed = ({ posts }) => (
+  
   <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
     {posts.map((post, idx) => (
       <div
@@ -20,7 +21,7 @@ const Feed = ({ posts }) => (
           />
           <span
             className={`absolute top-3 left-3 px-3 py-1 text-xs font-bold tracking-wide rounded-full animate-bounce shadow ${
-              post.type === 'lost' ? 'bg-red-500' : 'bg-green-500'
+              post.type === 'Lost' ? 'bg-red-500' : 'bg-green-500'
             } text-white`}
           >
             {post.type.toUpperCase()}

@@ -35,7 +35,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-14 px-4 md:px-10 animate-fade-in">
+    <section id='faq' className="bg-gray-50 py-14 px-4 md:px-10 animate-fade-in">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">📚 Frequently Asked Questions</h2>
         <div className="space-y-4">

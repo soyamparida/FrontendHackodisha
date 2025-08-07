@@ -3,19 +3,20 @@ import PostForm from '../components/PostForm';
 import TabNav from '../components/TabNav';
 import Feed from '../components/Feed';
 import LeftSidebar from '../components/LeftSidebar';
-
+import dummyPosts from '../data/data';
 
 const Dashboard = () => {
   
 
   const [posts, setPosts] = useState([]);
-  const [tab, setTab] = useState('lost');
+  const [tab, setTab] = useState('Lost');
   const [showModal, setShowModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
 
   const handlePost = (newPost) => {
     setPosts([newPost, ...posts]);
+    setTab(newPost.type);
     setShowModal(false);
   };
 
@@ -28,7 +29,6 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8">
-      {/* Post Button */}
       <div className="flex justify-end mb-4">
         <button
           onClick={() => setShowModal(true)}
@@ -37,24 +37,18 @@ const Dashboard = () => {
           Post Your Lost/Found Item
         </button>
       </div>
-
-      {/* Layout Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        {/* Left Sidebar */}
         <div className="hidden md:block h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide">
   <LeftSidebar
     onSearch={setSearchQuery}
     onCategoryChange={setCategoryFilter}
   />
 </div>
-        {/* Main Feed */}
         <div className="md:col-span-2 lg:col-span-3">
           <TabNav currentTab={tab} onChangeTab={setTab} />
-          <Feed posts={filteredPosts} />
+          <Feed posts={posts.length === 0 ? dummyPosts : filteredPosts} />
         </div>
       </div>
-
-    
       {showModal && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex items-center justify-center">
           <div className="bg-white rounded-xl shadow-lg max-w-xl w-full p-6 relative">
